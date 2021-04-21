@@ -16,7 +16,6 @@ class CreateCompanyProfilesTable extends Migration
         Schema::create('company_profiles', function (Blueprint $table) {
             $table->id();
             $table->string('company_name');
-            $table->string('facebook_url');
             $table->string('youtube_url');
             $table->string('facebook_url');
             $table->string('instagram_url');
