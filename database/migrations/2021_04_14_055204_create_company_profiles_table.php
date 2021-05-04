@@ -15,13 +15,13 @@ class CreateCompanyProfilesTable extends Migration
     {
         Schema::create('company_profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('company_name');
-            $table->string('facebook_url');
-            $table->string('youtube_url');
-            $table->string('facebook_url');
-            $table->string('instagram_url');
-            $table->text('address');
-            $table->text('company_about_details');
+            $table->string('company_name')->nullable();
+            $table->string('facebook_url')->nullable();
+            $table->string('youtube_url')->nullable();
+            $table->string('twitter_url')->nullable();
+            $table->string('instagram_url')->nullable();
+            $table->text('address')->nullable();
+            $table->text('company_about_details')->nullable();
             $table->timestamps();
         });
     }

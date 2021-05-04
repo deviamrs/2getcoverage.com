@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Blog\BLogListController;
 use App\Http\Controllers\Api\Company\CompanyController;
 use App\Http\Controllers\Api\TeamListController;
 use Illuminate\Http\Request;
@@ -24,3 +25,5 @@ Route::get('/team' , TeamListController::class);
 
 Route::get('/companylist' , [CompanyController::class , 'index'])->name('company.index');
 Route::get('/company/{company}' , [CompanyController::class , 'show'])->name('company.show');
+
+Route::get('/bloglist' , BLogListController::class)->name('bloglist.index');
