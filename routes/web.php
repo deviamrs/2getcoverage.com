@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\PostDescriptionController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -21,6 +22,27 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+
+Route::get('/' , [FrontController::class , 'homePage'])->name('front.home');
+
+Route::get('/company-list' , [FrontController::class , 'companylist'])->name('front.companylist');
+
+
+Route::get('/company/{slug}' , [FrontController::class , 'companysingle'])->name('front.companysingle');
+
+
+Route::get('/about' , [FrontController::class , 'about'])->name('front.about');
+
+Route::get('/our-story' , [FrontController::class , 'ourstory'])->name('front.ourstory');
+
+Route::get('/leadership' , [FrontController::class , 'leadership'])->name('front.leadership');
+
+
+Route::get('/contact' , [FrontController::class , 'contact'])->name('front.contact');
+
 
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {

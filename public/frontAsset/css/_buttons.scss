@@ -1,0 +1,68 @@
+
+.btn{
+    
+   padding: .7rem 2rem;
+   border-radius: 3rem;
+   outline: 0;
+   cursor: pointer;
+   transition: .3s;
+   display: inline-block;
+   border: none;
+   outline: none;
+   font-size: 1.67rem;
+
+   &:focus{
+      text-decoration: none;
+      outline: 0;
+      
+
+   }
+
+   &:hover{
+      transform: scale(1.001);
+      box-shadow: $shahow;
+   }
+
+   
+   &.btn-sm{
+      font-size: 1.3rem;
+      padding: .5rem 1rem;
+   }
+   
+   &.btn-primary ,  &.btn-secondary ,  &.btn-grey , &.btn-success{
+      color: $white;
+   }     
+
+   &.btn-primary{
+      background-color: $primary;
+      &:hover{
+         background-color: darken($color: $primary, $amount: .9);
+         
+      }
+     
+   }
+   &.btn-secondary{
+      background-color: $secondary;
+   
+   }
+   &.btn-grey{
+      background-color: $grey;
+      
+   }
+   &.btn-success{
+      background-color: $green;
+   
+   }
+
+
+   &.btn-hero-input{
+      font-size: 2.6rem;
+      background-color: $primary;
+      color: $white; 
+
+
+      @include max-650{
+         font-size: 1.6rem;
+      }
+   }
+}

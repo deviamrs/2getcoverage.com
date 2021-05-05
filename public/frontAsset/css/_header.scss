@@ -1,0 +1,176 @@
+.header{
+   position: fixed;
+   height: 8rem;
+   width: 100%;
+   background-color: $white;
+   left: 0;
+   top: 0;
+   z-index: 100;
+   box-shadow: $shahow;
+     
+   &-logo{
+      width: 15rem;
+      display: inline-block;
+
+      &-img{
+         width: 100%;
+         object-fit: contain;
+         object-position: center;
+      }
+   }
+
+   &-wrapper , &-list{
+      @include d-flex-j-s-b;
+   }
+
+   &-list{
+      max-width: 50rem;
+      width: 100%;
+
+   
+        
+      @include max-900{
+         max-width: 100%;
+         position: absolute;
+         left: 0;
+         top: 8rem;
+         transform: translate(-100% , -5rem) scale(0);
+         transform-origin: left;
+         transition: .3s;
+         background-color: $white;
+         width: calc(100vw - 30%);
+         flex-direction: column;
+         padding: 4rem 0;
+         box-shadow: $shahow;
+         max-height: calc(100vh - 8rem);
+         overflow-y: auto;
+
+
+         &.active{
+            transform: translate(0% , 0rem) scale(1);
+         }
+      }
+      
+
+     
+
+   }
+
+
+
+   &-list-item{
+      position: relative;
+       
+      @include max-900{ text-align: center; }
+
+      &:hover{
+         .header-sub-list{
+            transform: scale(1);
+            opacity: 1;
+
+            @include max-900{
+               max-height: initial;
+              visibility: visible;
+            }
+         }
+      }
+
+   }
+
+
+  
+
+
+
+
+
+   &-link{
+      display: inline-block;
+      padding: 3rem 0;
+      transition: .3s;
+      color: $grey;
+     
+      @include max-900{
+         display: block;
+         padding: 1rem;
+      }
+
+
+      &:hover{
+          color: $black;
+
+         
+      }
+
+
+      
+
+   }
+
+
+   &-sub-link{
+      padding: 1rem;
+      display: block;
+      transition: .3s;
+      &:hover{
+         background-color: rgba($color: $secondary, $alpha: 0.2);
+      }
+   }
+
+
+
+   &-sub-list{
+    
+      position: absolute;
+      background : $white;
+      width: 100%;
+      opacity: 0;
+      transform: scaleY(0);
+      transition: all 0.4s ease;
+      min-width: 24rem;
+      transform-origin: top;
+      left: 0;
+      top: 8rem;
+      border-left: 2px solid $secondary;
+    
+       @include max-900{
+          position: initial;
+          max-height: 0;
+          visibility: hidden;
+          
+       }
+
+
+    
+   }
+
+
+   .hamburger{
+      height: 4rem;
+      width: 4rem;
+      padding: 1rem;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+
+      @include max-900{
+         display: flex;
+      }
+
+      .line{
+         height: .2rem;
+         width: 100%;
+         background-color: $primary;
+           
+         &:not(:last-child){
+            margin-bottom: .2rem;
+         }
+
+      }
+   }
+ 
+  
+}

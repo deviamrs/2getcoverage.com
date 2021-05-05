@@ -1,0 +1,185 @@
+
+
+// global Container classess
+
+
+.container-large {
+    
+   max-width: 1499px;
+   width: 100%;
+   margin: 0 auto;
+
+   @include max-1366{
+      max-width: 1199px;
+      
+   }
+   @include max-1200{
+      width: 90%;
+   }
+
+  
+}
+
+
+.container {
+    
+   max-width: 1199px;
+   width: 100%;
+   margin: 0 auto;
+
+   @include max-1200{
+      width: 90%;
+   }
+
+  
+}
+.container-small {
+    
+   max-width: 799px;
+   width: 100%;
+   margin: 0 auto;
+
+   @include max-1200{
+      width: 90%;
+   }
+
+   form{
+      margin:  0  auto;
+      margin-bottom: 4rem;
+   }
+  
+}
+
+
+
+
+
+
+// bg -related classes
+
+
+.bg-primary{
+   background-color: $primary;
+}
+.bg-secondary{
+   background-color: $secondary;
+}
+.bg-white{
+   background-color: $white;
+}
+.bg-grey{
+   background-color: $grey;
+}
+.bg-success{
+   background-color: $green;
+}
+
+.bg-dark{
+   background-color: $black;
+}
+
+
+
+// some animations
+
+
+.animate-tilt-left-right{
+   animation: animate-tilt-left-right 5s infinite alternate;
+   transform-origin: bottom
+}
+
+
+@keyframes animate-tilt-left-right{
+   from{
+      transform: rotate(-5deg);
+   }
+   to{
+      transform: rotate(5deg);
+   }
+}
+
+.breadcrumb-section{
+   position: relative;
+   overflow: hidden;
+
+   
+   &::before{
+      left: 0;
+      top: 0;
+      width: 100%;
+      content: "";
+      position: absolute;
+      z-index: -1;
+      height: 100%;
+      background-color: rgba($color: $secondary, $alpha: 0.5);
+      transform: translateX(59%) rotate(156deg);
+      border-radius: 25rem;
+   }
+   &::after{
+      left: 0;
+      bottom: 0;
+      width: 40rem;
+      content: "";
+      position: absolute;
+      z-index: -1;
+      height: 40rem;
+      background-color: rgba($color: $secondary, $alpha: 0.5);
+      transform: translate(-57% , 48%) rotate(147deg);
+        border-radius: 25rem;
+
+
+       @include max-650{
+         display: none;
+      }
+   }
+
+   &-wrap{
+      height: 30rem;
+      display: grid;
+      grid-template-columns: repeat(1 , 1fr);
+      margin-top: 10rem;
+      position: relative;
+      align-items: center;
+
+     
+
+
+      &::before{
+         left: -20%;
+         top: 0;
+         width: 100%;
+         content: "";
+         position: absolute;
+         z-index: -1;
+         height: 100%;
+         background-color: rgba($color: $green, $alpha: 0.3);
+         transform: translateX(59%) rotate(156deg);
+          border-radius: 25rem;
+      }
+   
+    
+
+
+      @include max-650{ height: 25rem; }
+
+  
+   .headings{
+      @include max-650{
+        
+        
+      }
+   }
+
+   }
+}
+
+.company{
+   &--inner{   
+      
+   }
+
+   &--detail{
+      border-top: 1px dashed $grey;
+      border-bottom: 1px dashed $grey;
+   }
+}

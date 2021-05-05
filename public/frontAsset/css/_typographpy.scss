@@ -1,0 +1,150 @@
+a{
+   font-size: 1.6rem;
+   
+}
+
+p{
+   font-size: 1.7rem;
+   margin-bottom: 1rem;
+}
+
+h3{
+   font-size: 1.8rem;
+}
+
+h2{
+   font-size: 1.6rem;
+}
+
+h4{
+   font-size: 1.4rem;
+}
+
+// text realated utiities
+
+.text-primary{
+   color: $primary;
+}
+.text-secondary{
+   color: $secondary;
+}
+.text-white{
+   color: $white;
+}
+.text-grey{
+   color: $grey;
+}
+.text-success{
+   color: $green;
+}
+
+.text-dark{
+   color: $black;
+}
+
+.text-center{
+   text-align: center;
+}
+
+.text-right{
+   text-align: right;
+}
+
+
+.btn-group-start-right {
+   max-width: 47.5rem;
+   width: 100%;
+   display: flex;
+   justify-content: flex-end;
+}
+
+
+.text-gradient-blue{
+   background-image: linear-gradient(135deg , $primary , $black);
+   background-size: 200%;
+   margin-bottom: 1.5rem;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   text-transform: capitalize;
+   display: inline-block;
+   margin-bottom: 1.5rem;
+   padding-bottom: .5rem;
+   position: relative;
+
+   &::before{
+       left: 0;
+       bottom: 0;
+       position: absolute;
+       background-color: $secondary;
+       content: "";
+       width: 5rem;
+       height: .2rem;
+   }
+}
+
+
+
+
+.heading{
+   font-weight: 600;
+   font-size: 3rem;
+    
+   @include max-650{
+      font-size: 2rem;
+   }
+
+   &.heading-big{
+      font-size: 5rem;
+      text-transform: capitalize;
+     
+      @include max-650{
+          font-size: 3rem;
+      }
+
+
+      &:hover{
+         animation-play-state: paused;
+      }
+   }
+  
+
+   
+}
+
+
+.global-head-content{
+   margin-bottom: 3rem;
+}
+
+
+.global-head{
+   font-size: 3.5rem;
+   display: inline-block;
+   position: relative;
+   background-image: linear-gradient(135deg , $primary , $black);
+   background-size: 200%;
+   margin-bottom: 1.5rem;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   text-transform: capitalize;
+
+   @include max-650{
+      font-size: 2.3rem;
+   }
+  
+
+}
+
+
+@keyframes changeTextBg {
+   from{
+      background-position: top left;
+   }
+   to{
+      background-position: bottom right;
+   }
+}
+
+.link{
+   color: $primary;
+}

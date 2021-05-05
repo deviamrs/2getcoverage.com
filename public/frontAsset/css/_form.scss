@@ -1,0 +1,105 @@
+.input-with-cta{
+   display: grid;
+   grid-template-columns: 20rem auto;  
+   box-shadow: $shahow;
+   background-color: $white;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   padding: 1.5rem 2rem;
+   border-radius: 4rem;
+   align-items: center;
+   border: 1px solid rgba($color: $secondary, $alpha: 0.4);
+   margin: 2.5rem 0;
+   transition: .3s;
+   max-width: 50rem;
+   width: 100%;
+   backface-visibility: hidden;
+
+   @include max-650{
+       max-width: 65rem;
+       padding: 1rem;
+       border-radius: 3rem;
+     
+   }
+
+   &:hover{
+      transform: scale(1.01);
+   }
+
+   .input-box{
+      position: relative;
+      padding-left: 4rem;
+   
+
+      
+     
+      .input-icon{
+         font-size: 3rem;
+         position: absolute;
+         left: 0;
+         top: 50%;
+         transform: translateY(-50%);
+      }  
+
+      &-control{
+          border: none;
+          outline: none;
+          font-size: 2.6rem;
+          width: 100%   
+      }
+   }
+}
+
+
+
+
+.global-form{
+   padding: 4rem 0;
+   &-box{
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 3rem;
+      position: relative;
+      .input-label{
+         position: absolute;
+         left: 4%;
+         top: -22%;
+         padding: .5rem;
+         font-size: $primary;
+         font-size: 1.6rem;
+         background: $white;
+         display: inline-block;
+
+         @include max-550{
+            top: -44%;
+
+         }
+         
+
+         &.tr{
+            top: -10%;
+         }
+      }
+
+      .input-bar{
+         width: 100%;
+         border: none;
+         outline: none;
+         resize: none;
+         font-size: 1.6rem;
+         padding: 2rem 3rem;
+         border-radius: 30px;
+         border: 1px solid $primary;
+         box-shadow: $shahow;
+
+         @include max-550{
+            top: -44%;
+            padding:1rem 2rem;
+         }
+
+         &.msg{
+            border-radius: 40px;
+         }
+      }
+   }
+}

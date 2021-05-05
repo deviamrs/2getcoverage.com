@@ -1,0 +1,408 @@
+.company-card{
+   display: block;
+   padding: 1rem;
+   height: 11rem;
+   background-color: $white;
+   box-shadow: $shahow;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: .5rem;
+   border: 1px solid rgba($color: $secondary, $alpha: 0.4);
+   transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+   &-img{
+      .company-image{
+         width: 100%;
+         object-fit: contain;
+         object-position: center;
+      }
+   }
+
+
+   &:hover{
+      transform: scale(1.05);
+   }
+}
+
+
+.news-card{
+   padding: 1rem;
+   background-color: $white;
+   box-shadow: $shahow;
+   position: relative;
+   max-width: 40rem;
+   border: 1px solid rgba($color: $secondary, $alpha: 0.4);
+   transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   overflow: hidden;   
+   
+   &::after , &::before{
+       
+      position: absolute;
+      content: "";
+      background-color: rgba($color: $grey, $alpha: 0.05);
+
+      
+   }
+
+   &::before{
+      left: 0;
+      top: 0;
+      height: 20rem;
+      width: 20rem;
+      transform: translateX(-50%);
+   }
+ 
+
+
+   &-date{
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: $primary;
+      display: inline-block;
+      padding: .5rem 1.2rem;
+      font-size: 1.3rem;
+      transform: rotate(-90deg) translate(-40%, -44%);
+
+     
+   }
+
+   &-img , &-title , &-category{
+      margin-bottom: 1.5rem;
+      position: relative;
+   }
+
+   &-img{
+      height: 18rem;
+      display: block;
+      margin-bottom: 1.5rem;
+
+
+   }
+
+   &-title{
+      font-size: 1.7rem;
+      display: block;
+   }
+
+   &-image{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+   }
+
+
+   &-category{
+     
+      display: inline-block;
+      background-color: rgba($color: $secondary, $alpha: 0.4);
+      color: $black;
+      padding: .5rem .9rem;
+      font-size: 1.4rem;
+     
+      
+   }
+}
+
+
+// tips card
+
+
+.tips-card{
+   padding: 2rem;
+   background-color: $white;
+   box-shadow: $shahow;
+   position: relative;
+   border: 1px solid rgba($color: $secondary, $alpha: 0.4);
+   transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   overflow: hidden;  
+   border-radius: .5rem;
+   &-img-wrap{
+      height: 22rem;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+   }
+
+
+   &-image{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+   
+   }
+
+
+   &-link{
+      display: block;
+      margin-bottom: 1.5rem;
+        
+     
+   }
+}
+
+
+
+.review-card{
+   padding: 2rem;
+   background-color: $white;
+   box-shadow: $shahow;
+   position: relative;
+   border: 1px solid rgba($color: $secondary, $alpha: 0.4);
+   transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   overflow: hidden;  
+   border-radius: .5rem;
+   display: flex;
+   justify-content: space-between;
+   flex-direction: column;
+
+
+
+   &::before{
+      content: "";
+      left: 50%;
+      bottom: 0;
+      background-color: rgba($color: $secondary, $alpha: 0.1);
+      width: 10rem;
+      height: 10rem;
+      border-radius: 50%;
+      position: absolute;
+      transform: translate(-50%, 230%) scale(5);
+      
+   }
+
+   .star{
+      font-size: 2rem;
+   }
+
+   .content-box ,  &-head{
+      margin-bottom: 1.5rem;
+   }
+  
+   .review-stars-wrap , .content-box{
+      position: relative;
+   }
+   
+}
+
+.about-s-cards{
+   margin-top: 3rem;
+   .scard{
+      font-size: 1.8rem;
+      color: $primary;
+      padding: 1.6rem;
+      box-shadow: $shahow;
+      border: 1px solid rgba($color: $secondary, $alpha: 0.4);
+   }
+}
+
+.about-b-cards{
+   margin-top: 3rem;
+   .scard{
+      font-size: 1.8rem;
+      color: $primary;
+      padding: 1.6rem;
+      box-shadow: $shahow;
+      border: 1px solid rgba($color: $secondary, $alpha: 0.4);
+      .s-img-wrp{
+         margin-bottom: 2rem;
+      }
+   }
+}
+
+.team-card{
+   box-shadow: $shahow;
+   // width: 29rem;
+   padding: 2rem;
+   overflow: hidden;
+   border-radius: .5rem;
+   position: relative;
+   border: 1px solid rgba(102, 207, 226, 0.4);
+  
+
+   &::before{
+      position: absolute;
+      content: "";
+      background: rgba($color: $green, $alpha: 0.04);
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      clip-path: polygon(80% 0, 100% 0%, 70% 100%, 50% 100%);
+      z-index: -1;
+   }
+   &::after{
+      position: absolute;
+      content: "";
+      background: rgba($color: $primary, $alpha: 0.04);
+      right: -5%;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      clip-path: polygon(80% 0, 100% 0%, 70% 100%, 50% 100%);
+      z-index: -1;
+   }
+   .image-wrp{
+      border-radius: 50%;
+      height: 13rem;
+      width: 13rem;
+      overflow: hidden;
+      // transform: translateX(-2rem) translateY(-2rem);
+      box-shadow:  2px 2px 5px rgba($color: $black, $alpha: 0.5);
+
+      
+   }
+   .name-wrp{
+
+   }
+   .designation-wrp{
+
+   }
+   .content-wrp{
+      ul{
+         li{
+            font-size: 1.5rem;
+            color: $black;
+            padding: .5rem 0;
+         }
+      }
+   }
+
+  
+}
+
+.company-cards{
+   background: rgba($color: $primary, $alpha: 0.1);
+   position: relative;
+   overflow: hidden;
+
+   &::before{
+      position: absolute;
+      content: "";
+      background: rgba($color: $green, $alpha: 0.06);
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      clip-path: polygon(80% 0, 100% 0%, 70% 100%, 50% 100%);
+      z-index: -1;
+      animation: animationOfelements 10s;
+      animation-timing-function: ease;
+      animation-delay: 2s;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+   }
+   &::after{
+      position: absolute;
+      content: "";
+      background: rgba($color: $primary, $alpha: 0.06);
+      right: -5%;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      clip-path: polygon(80% 0, 100% 0%, 70% 100%, 50% 100%);
+      z-index: -1;
+      animation: animationOfelements 10s;
+      animation-timing-function: ease;
+      animation-delay: 2s;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+   }
+  
+   &--wrp{
+      .c-card{
+         margin: 0 2rem;
+         padding: 2rem;
+         box-shadow: $shahow;
+         border-radius: 5px;
+         transform: scale(1.0);
+         transition: all 0.4s ease;
+
+         @include max-650{
+            margin: 0 1rem;
+         }
+         
+         .c-image{
+            height: 8rem;
+            width: 8rem;
+            // margin:  0 auto;
+         }
+
+         .c-text{
+            font-size: 2.2rem;
+         }
+         .c-content{
+            font-size: 1.6rem;
+            color: $black;
+         }
+
+         &:hover{
+            transform: scale(1.02);
+
+            .btn-primary{
+               color: $primary;
+               background: $white;
+               box-shadow: $shahow;
+               border: 1px solid $primary;
+            }
+         }
+      }
+   }
+}
+
+.c-detail-card{
+   .c-top{
+      .t-card{
+         border-radius: 5px;
+         padding: 2.5rem;
+         box-shadow: $shahow;
+         transform: translateY(-20%);
+         border: 1px solid rgba(102, 207, 226, 0.4);
+  
+         ul{
+
+            li{
+               padding: .5rem 0;
+               font-size: 1.6rem;
+               list-style: decimal;
+            }
+         }
+      }
+   }
+   .c-bottom{
+      .a-card{
+         border-radius: 5px;
+         padding: 2.5rem;
+         box-shadow: $shahow;
+         transform: translateY(-20%);
+         border: 1px solid rgba(102, 207, 226, 0.4);
+  
+         ul{
+
+            li{
+               padding: 1.5rem 0;
+               font-size: 1.6rem;
+               display: flex;
+               align-items: center;
+
+               .icon-crd{
+                  height: 5rem;
+                  width: 5rem;
+                  border: 1px solid rgba(102, 207, 226, 0.4);
+                  border-radius: 5px;
+                  padding: .2rem;
+                  box-shadow: $shahow;
+                  margin-right: 2rem;
+               }
+
+               .link-crd{
+                  font-size: 1.8rem;
+                  
+               }
+            }
+         }
+      }
+   }
+}
