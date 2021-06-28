@@ -4,23 +4,37 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
    <title>{{ env('APP_NAME') }}</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 @yield('custom_Css')
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-</head>
-<body>
+<style>
     
+    body{
+      font-size: 14px;
+    }
+
+    .btn-group-sm>.btn, .btn-sm {
+    padding: .25rem .5rem;
+    font-size: .7rem;
+    border-radius: .2rem;
+    }
+
+</style>
+
+
+</head>
+<body class="">
+  <div class="container-fluid">
      @includeIf('adminlayout.includes.header')
-   <div class="row mt-5">
+   
+    <div class="row mt-5">
       @auth
       <div class="col-md-2">
-            
-        
          @includeIf('adminlayout.includes.sidebar')   
-        
-
-        
       </div>
       @endauth
       <div class="col-md-10">
@@ -67,6 +81,10 @@
           @yield('admin_content')
          </div>
      </div>  
+  
+  </div>  
+     
+ 
    <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
 <script>

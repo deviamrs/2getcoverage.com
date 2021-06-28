@@ -1,14 +1,29 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CompanyContentController;
 use App\Http\Controllers\Admin\CompanyController;
+use App\Http\Controllers\Admin\CompanyDetailController;
+use App\Http\Controllers\Admin\CompanyProfileController;
+use App\Http\Controllers\Admin\EnquiryListController;
+use App\Http\Controllers\Admin\FaqCategoryController;
+use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\InsuranceTipController;
+use App\Http\Controllers\Admin\InsuranceTypeController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\PostDescriptionController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\FrontController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\StaticPgeController;
+use App\Http\Controllers\Admin\StaticSectionController;
+use App\Http\Controllers\Admin\TipContentController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\VehicleInfoController;
+use App\Http\Controllers\Admin\InsureCategoryController;
+use App\Http\Controllers\FrontControllerTwo;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,14 +40,11 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
 Route::get('/' , [FrontController::class , 'homePage'])->name('front.home');
 
 Route::get('/company-list' , [FrontController::class , 'companylist'])->name('front.companylist');
 
-
 Route::get('/company/{slug}' , [FrontController::class , 'companysingle'])->name('front.companysingle');
-
 
 Route::get('/about' , [FrontController::class , 'about'])->name('front.about');
 
@@ -43,12 +55,67 @@ Route::get('/leadership' , [FrontController::class , 'leadership'])->name('front
 
 Route::get('/contact' , [FrontController::class , 'contact'])->name('front.contact');
 
+Route::get('/why-us' , [FrontController::class , 'whyUs'])->name('front.whyus');
+
+Route::get('/faqs' , [FrontController::class , 'faqs'])->name('front.faqs');
+
+Route::get('/privacy' , [FrontController::class , 'privacy'])->name('front.privacy');
+
+Route::get('/careers' , [FrontController::class , 'careers'])->name('front.careers');
+
+Route::get('/insurance-tips' , [FrontController::class , 'policytiplist'])->name('front.policytiplist');
+
+Route::get('/insurance-tip/{slug}' , [FrontController::class , 'singletip'])->name('front.singletip');
+
+
+// insurance related page routes
+
+Route::get('/insurance/{insureCategory:slug}/{insuranceType:slug}' , [FrontControllerTwo::class , 'singleinsuranceType'])->name('front.singleinsuranceType');
+
+
+
+Route::get('zipcode/{zipcode}/vehicle-info' , [VehicleInfoController::class , 'getVehicleInfo'] )->name('front.getVehicleInfo');
+
+Route::get('/privacy' , [FrontController::class , 'privacy'])->name('front.privacy');
+
+
+Route::get('/news' , [FrontController::class , 'news'])->name('front.news');
+
+
+Route::get('/tag/{id:name}/news/' , [FrontController::class , 'getpostbytag'] )->name('getpostbytag');
+Route::get('/category/{id:name}/news/' , [FrontController::class , 'getpostbycategory'] )->name('getpostbycategory');
+
+Route::get('/news/{id:slug}' , [FrontController::class , 'getsinglepost'])->name('getsinglepost');
+
+
+
+
 
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
+    
+  
 
     Route::resource('/team', TeamController::class);
     Route::resource('/company', CompanyController::class);
+
+    Route::resource('/company/{company}/companyProfile', CompanyProfileController::class);
+
+    Route::resource('/company/{company}/companyDetailCard', CompanyDetailController::class);
+
+    Route::resource('/company/{company}/companyContent', CompanyContentController::class);
+
+    Route::resource('/staticPage', StaticPgeController::class);
+
+    Route::resource('/staticSection', StaticSectionController::class);
+
+
+    Route::resource('/insureCategory', InsureCategoryController::class);
+   
+    Route::resource('/insureCategory/{insureCategory}/insuranceType', InsuranceTypeController::class );
+
+    
+    Route::get('/enquiry-list' , EnquiryListController::class)->name('admin.enquiry.list') ;
 
         
     // post related route begins from here 
@@ -103,9 +170,27 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
  
     Route::resource('/post/{post}/postdescription', PostDescriptionController::class);
 
-    // post related route ends from here
+    // post related route ends from here\
+
+
+    // review routers
+
+    Route::resource('/review' , ReviewController::class);
+
+    //  insurance tips routes
+
+    Route::resource('/insuranceTip', InsuranceTipController::class);
+
+    Route::resource('/insuranceTip/{insuranceTip}/tipContent' , TipContentController::class);
+
+
+    // faq category Routes
+
+    Route::resource('/faqCategory', FaqCategoryController::class);
+    Route::resource('/faqCategory/{faqCategory}/faq', FaqController::class);
+
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.home');

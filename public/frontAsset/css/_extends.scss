@@ -164,6 +164,9 @@
 
   
    .headings{
+      .heading{
+         font-style: italic;
+      }
       @include max-650{
         
         
@@ -182,4 +185,34 @@
       border-top: 1px dashed $grey;
       border-bottom: 1px dashed $grey;
    }
+}
+
+
+.grid-1fr-1fr{
+   display: grid;
+   grid-template-columns: repeat(2 , 1fr);
+   grid-gap: 2rem;
+}
+
+.grid-3fr-1fr{
+   display: grid;
+   grid-template-columns: 3fr 1fr;
+   grid-gap: 2rem;
+
+}
+.grid-3fr-1fr-1fr{
+   display: grid;
+   grid-template-columns: 3fr .5fr 1fr;
+   grid-gap: 2rem;
+}
+
+.grid-text-item{
+   &.span-full{
+      grid-column: 1 / -1;
+   }
+}
+
+
+.d-block{
+   display: block !important;
 }

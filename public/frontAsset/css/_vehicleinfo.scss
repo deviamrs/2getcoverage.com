@@ -1,0 +1,162 @@
+.vehicle-info-container{
+   max-width: 66rem;
+   margin: 10rem auto;
+   
+   
+}
+
+.progress-container{
+   // height: 7rem;
+   .progress-count-wrap{
+      display: flex;
+      justify-content: space-around;
+      align-items: center; 
+      margin-bottom: 1rem;
+      
+
+      .progress-count{
+         font-size: 1.4rem;
+         color: rgba($color: $grey, $alpha: 1.0);
+         font-weight: 600;
+      }
+   }
+
+
+   .progress-bar{
+      position: relative;
+      background-color: rgba($color: $grey, $alpha: .4);
+      height: .5rem;
+      border-radius: 1rem;
+      overflow: hidden;
+      
+       
+      .progress-percent{
+         position: absolute;
+         left: 0;
+         top: 0;
+         height: 100%;
+         width: 25%;
+         background-color: $primary;
+      }
+
+   }
+}
+
+.info-component{
+   padding: 2rem;
+   background-color: $white;
+   box-shadow: 4px 4px 10px rgba($color: $grey, $alpha: .1);
+   margin-bottom: 1.5rem;
+
+
+   .info-head{
+      font-size: 2.2rem;
+      color: rgba($color: $grey, $alpha: 1.0);
+      position: relative;
+      padding-bottom: 2rem;
+      
+
+      &::before{
+         left: 0;
+         bottom: 0;
+         width: 4rem;
+         height: .3rem;
+         background-color: $primary;
+         content: "";
+         position: absolute;
+         // transform: translateX(-50%);
+      }
+
+   }
+
+
+   .model-detail-box{
+      display: flex;
+      flex-wrap: wrap;
+      border: 1px solid rgba($color: $grey, $alpha: .2);
+      padding: 1rem;
+      margin-bottom: 3rem;
+      border-radius: .5rem;
+
+      &:hover{
+         border-color: $primary;
+      }
+     
+      .vehicle-m{
+         font-size: 1.4rem;
+         display: flex;
+         padding: .5rem 1rem;
+         margin-bottom: 1rem;
+         border-radius: 3rem;
+         margin-right: 1rem;
+         align-items: center;
+         border: 1px solid rgba($color: $grey, $alpha: 0);
+         transition: all .3s;
+
+
+         &:hover{
+            box-shadow: 2px 2px 5px rgba($color: $grey, $alpha: .1);
+            background-color: $white;
+            color: $primary;
+            border: 1px solid rgba($color: $grey, $alpha: .1);
+         }
+      }
+
+      .v-m-m-m{
+         margin-right: 1rem;
+         display: inline-block;
+      }
+
+      .v-del{
+         cursor: pointer;
+         transition: all .3s;
+         
+         &:hover{
+            color: red;
+         }
+      }
+
+
+      
+   }
+}
+
+
+.select-year-component{
+   position: relative;
+   border: 1px solid rgba($color: $grey, $alpha: .1);
+   border-radius: .5rem;
+
+
+   &::after{
+      position: absolute;
+      right: 20px;
+      border: 20px solid transparent;
+      border-bottom-color: rgba($color: $grey, $alpha: 0.3);
+      content: "";
+      top: -40px;
+   }
+   .select-list{
+      &-item{
+         padding: 1rem;
+         padding-left: 3rem;
+         font-size: 2rem;
+         border-bottom: 1px solid rgba($color: $grey, $alpha: .1);
+         cursor: pointer;
+         display: flex;
+         align-items: center;    
+         &:hover{
+            background-color: rgba($color: $grey, $alpha: .1);
+         }
+      }
+
+      &-img{
+         object-fit: contain;
+         width: 4rem;
+         height: 4rem;
+         object-position: center;
+         margin-right: 2rem;
+         
+      }
+   }
+}

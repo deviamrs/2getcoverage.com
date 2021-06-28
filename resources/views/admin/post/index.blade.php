@@ -15,7 +15,7 @@
          <h6 class="m-0 font-weight-bold text-primary">{{ isset($featured) ? 'Featured' : ''  }} {{ isset($username) ? $username : '' }} {{ isset($tagname) ? $tagname . ' Tag' : '' }} {{ isset($published) ? $published  : '' }} {{ isset($draft) ? $draft  : '' }}  Post Listing </h6>
          @if ($posts->count() > 0)
          <div class="d-flex justify-content-end" >
-           <a href="{{ route('post.create') }}" class="btn btn-primary"><i class="fas fa-pen"></i> Add post</a>   
+           <a href="{{ route('post.create') }}" class="btn btn-primary btn-sm"><i class="fas fa-pen"></i> Add post</a>   
            </div>    
          @endif 
        </div>
@@ -125,7 +125,15 @@
                       </td>
                       
                       <td>
-                         <button type="button" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#delted-modal-{{$key+1}}">
+                        <form action="{{ route('post.destroy' , $post->id) }}" method="post">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-danger btn-icon-split btn-sm"><span class="icon text-white-50">
+                             <i class="fas fa-trash"></i>
+                           </span>
+                           <span class="text">Delete</span></button>
+                        </form> 
+                         {{-- <button type="button" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#delted-modal-{{$key+1}}">
                               <span class="icon text-white-50">
                                 <i class="fas fa-trash"></i>
                               </span>
@@ -160,7 +168,7 @@
                               </div>
                             </div>
                           </div>
-                        </div>   
+                        </div>    --}}
                       </td>
                       {{-- <td>
                         {{ $post->created_at->diffForHumans() }}

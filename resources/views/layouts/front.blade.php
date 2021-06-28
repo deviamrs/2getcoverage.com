@@ -13,8 +13,11 @@
 
    {{-- style sheets begins from here  --}}
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+     
+   @yield('custom_Css')
+
    <link rel="stylesheet" href="{{ asset('public/frontAsset/css/style.css') }}">
-   
+   @livewireStyles 
 </head>
 <body>
    @include('front.partials.header')
@@ -22,5 +25,9 @@
    @yield('front_content')
 
    @include('front.partials.footer')
+
+   @yield('custom_JS')
+
+   @livewireScripts
 </body>
 </html>

@@ -4,7 +4,16 @@
 @section('admin_content')
  
    <div class="card p-3">
-         <h5 class="mb-3">Teams Listing</h5>
+    <div class="card-header py-3 d-flex flex-row justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">
+         Team Listing
+      </h6>
+     @if ($entries->count() > 0)       
+     <div class="d-flex justify-content-end pt-3" >
+       <a href="{{ route('team.create')}}" class="btn btn-primary btn-sm"><i class="fas fa-pen"></i> Add Member</a>   
+       </div>    
+     @endif 
+    </div>
 
          <div class="table-responsive">
          

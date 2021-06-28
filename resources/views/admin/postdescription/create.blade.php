@@ -153,12 +153,7 @@
 </script>
 
 
-<script>
-  
-//   const addimagecontentbtn = document.querySelector('#add-addtional-description-btn'), 
-//         additionalDescriptionBox  = document.querySelector('#additional-description-box');
-        
-</script> 
+
     
 
 

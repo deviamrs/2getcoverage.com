@@ -160,9 +160,7 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
-
-          
+        //   
         try {
             if (Storage::exists($company->image)) {
                 Storage::delete($company->image);
@@ -170,7 +168,13 @@ class CompanyController extends Controller
 
        } catch (\Throwable $th) {        }
 
-       
+       if ($company->carddetails->count() > 0) {
+           $company->carddetails()->delete();
+       }
+       if ($company->companysections->count() > 0) {
+           $company->companysections()->delete();
+       }
+      
        $company->delete();
 
        return redirect(route('company.index'))->withSuccess('Company Removed Successfully');

@@ -16,6 +16,7 @@ class CompanyProfileController extends Controller
     public function index()
     {
         //
+        
     }
 
     /**

@@ -8,6 +8,10 @@
          <li class="header-list-item">
              <a href="javascript:void(0)" class="header-link">Insurance</a>
              <ul class="header-sub-list">
+
+                 <li class="header-sub-list-item">
+                     <a href="{{ route('front.policytiplist') }}" class="header-sub-link text-grey">Insurance Tips</a>
+                 </li>
                  <li class="header-sub-list-item">
                      <a href="" class="header-sub-link text-grey">Home Insurance</a>
                  </li>
@@ -28,7 +32,6 @@
          </li>
          <li class="header-list-item">
              <a href="javascript:void(0)" class="header-link">About</a>
-             
              <ul class="header-sub-list">
                  <li class="header-sub-list-item">
                      <a  href="{{ route('front.about') }}" class="header-sub-link text-grey">About Us</a>
@@ -40,17 +43,16 @@
                      <a   href="{{ route('front.leadership') }}" class="header-sub-link text-grey">Leadership</a>
                  </li>
                  <li class="header-sub-list-item">
-                     <a href="" class="header-sub-link text-grey">Careers</a>
+                     <a href="{{ route('front.careers') }}" class="header-sub-link text-grey">Careers</a>
                  </li>
                  <li class="header-sub-list-item">
                       <a href="{{ route('front.companylist') }}" class="header-sub-link text-grey">Company List</a>
                  </li>
-               
                  <li class="header-sub-list-item">
-                     <a href="" class="header-sub-link text-grey">Privacy</a>
+                     <a href="{{ route('front.privacy') }}" class="header-sub-link text-grey">Privacy</a>
                  </li>
                  <li class="header-sub-list-item">
-                     <a href="" class="header-sub-link text-grey">FAQs</a>
+                     <a href="{{ route('front.faqs') }}" class="header-sub-link text-grey">FAQs</a>
                  </li>
               
                  <li class="header-sub-list-item">
@@ -68,7 +70,7 @@
              </ul>  
          
          </li>
-         <li class="header-list-item"><a href="" class="header-link">Why Us</a></li>
+         <li class="header-list-item"><a href="{{ route('front.whyus') }}" class="header-link">Why Us</a></li>
          <li class="header-list-item"><a href="{{ route('front.contact') }}"  class="header-link text-grey">Contact Us</a></li>
              
          <li class="header-list-item"><a href="" class="btn btn-primary btn-menu">Agent Login</a></li>
@@ -81,7 +83,6 @@
    </div>
    </div>
 
-   sc
 
 
    

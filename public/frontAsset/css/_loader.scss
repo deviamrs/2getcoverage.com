@@ -1,0 +1,31 @@
+.loader-container{
+   background-color: rgba($color: $white, $alpha: .9);
+   position: absolute;
+   left: 0;
+   top: 0;
+   height: 100%;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 100;
+   flex-direction: column;
+
+
+   .loader-item{
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-right-color: $primary;
+      border-left-color: $primary;
+      animation: loaderAnimate 2s ease infinite;
+   }
+
+
+   @keyframes  loaderAnimate{
+       to{
+          transform: rotate(3turn);
+       }
+   }
+}

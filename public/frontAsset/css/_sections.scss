@@ -63,6 +63,8 @@ section{
          height: 50rem;
          overflow: hidden;
          justify-self: center;
+         border-radius: 3rem;
+         overflow: hidden;
 
          @include max-650{
             display: none;

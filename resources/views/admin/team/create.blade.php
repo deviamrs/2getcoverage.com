@@ -13,7 +13,7 @@
                   @method('PUT')
              @endisset
              <div class="form-group mb-2"> 
-                 <label for="floatingInput">Email address</label>
+                 <label for="floatingInput">Member Name</label>
                  <input type="text" class="form-control"  placeholder="Name"  name="name" value="{{ isset($team) ? $team->name : old('name') }}">
                  @error('name') <small class="text-sm text-danger">{{ $message }}</small>   @enderror
                </div>
