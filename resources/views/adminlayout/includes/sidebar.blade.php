@@ -52,5 +52,8 @@
     <a class="list-group-item d-flex justify-content-between align-items-center" href="{{ route('admin.enquiry.list') }}">
         Enquiry List
     </a>
+    <a class="list-group-item d-flex justify-content-between align-items-center" href="{{ route('insurancelead.index') }}">
+        Insurance Leads
+    </a>
 
 </ul>

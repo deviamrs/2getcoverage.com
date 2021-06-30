@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\TipContentController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\VehicleInfoController;
 use App\Http\Controllers\Admin\InsureCategoryController;
+use App\Http\Controllers\Admin\InsuranceLeadsController;
 use App\Http\Controllers\FrontControllerTwo;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -75,6 +76,7 @@ Route::get('/insurance/{insureCategory:slug}/{insuranceType:slug}' , [FrontContr
 
 
 Route::get('zipcode/{zipcode}/vehicle-info' , [VehicleInfoController::class , 'getVehicleInfo'] )->name('front.getVehicleInfo');
+Route::post('store-insurance-lead' , [VehicleInfoController::class , 'storeInsuranceLead'] )->name('front.storeInsuranceLead');
 
 Route::get('/privacy' , [FrontController::class , 'privacy'])->name('front.privacy');
 
@@ -180,15 +182,16 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     //  insurance tips routes
 
     Route::resource('/insuranceTip', InsuranceTipController::class);
-
+    
     Route::resource('/insuranceTip/{insuranceTip}/tipContent' , TipContentController::class);
-
-
+    
+    
     // faq category Routes
-
+    
     Route::resource('/faqCategory', FaqCategoryController::class);
     Route::resource('/faqCategory/{faqCategory}/faq', FaqController::class);
-
+    // Insurance lead in admin side
+    Route::resource('/insurancelead', InsuranceLeadsController::class);
 });
 
 Auth::routes(['register' => false]);
