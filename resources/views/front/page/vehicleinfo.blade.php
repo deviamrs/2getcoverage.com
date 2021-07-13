@@ -1675,4 +1675,206 @@
         <script src="{{ asset('public/frontAsset/js/vehicleInfo.js') }}"></script>
 
 
-    @endsection
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+   var msg;
+   function btnclick(year) {
+           $.ajax({
+              type:'POST',
+              url:"{{ url('api/VehicleInfoYear') }}"+'/'+year,
+              data:{car_year:year},
+              success: function(data){
+                 console.log(data,'data');
+              if(data){
+                   var data1='';
+                      $.each(data,function(key,value){
+                      data1 +='<div class="info-input-box"><input class="info-input mkr'+key+'" data-name="'+value+'"  onclick="getYearBrand('+year+','+key+')" type="radio" name="vehicle_maker" value="'+value+'"><label class="">'+value+'</label></div>';
+                  });
+                  }else{
+                     $(".vehicalmaker").html('');
+                  }
+                  $(".vehicalmaker").html(data1);
+              }
+          });
+         }
+
+   function getYearBrand(year,key) {
+      var makerName=$('.mkr'+key).attr('data-name');
+       $(document).ready(function(){
+           $.ajax({
+              type:'POST',
+              url:"{{ url('api/VehicleInfoMaker') }}"+'/'+year+'/'+makerName,
+              data:{car_year:year,vehicle_maker:makerName},
+              success: function(data){
+
+              if(data){
+                 var data1='';
+                      $.each(data,function(key,value){
+                        data1+=' <div class="info-input-box"><input class="info-input mkrb'+key+'"  data-name="'+value+'"  type="radio" name="vehicle_model" data-modelName="'+makerName+'" data-brandName="'+value+'" onclick="getYearBrandModel('+year+','+key+')" value="'+value+'"><label class="">'+value+'</label></div>';
+
+                     //   data1+=' <option value="'+value.vehicle_maker_other+'" selected>'+value.vehicle_maker_other+'</option>';
+                        });
+                  }else{
+                     $('.Vehicle_Model').html('');
+                  }
+                  $('.Vehicle_Model').html(data1);
+              }
+          });
+      });
+   }
+   function getYearBrandModel(year,key) {
+      var brandName=$('.mkrb'+key).attr('data-brandName');
+      var modelName=$('.mkrb'+key).attr('data-modelName');
+       $(document).ready(function(){
+           $.ajax({
+              type:'POST',
+              url:"{{ url('api/VehicleInfoTrin') }}",
+              data:{year:year,brand:modelName,model:brandName},
+              success: function(data){
+               console.log(data,'++++++++++++++');
+              if(data){
+                 var data1='';
+                      $.each(data,function(key,value){
+                        data1+=' <div class="info-input-box"><input class="info-input mkr'+key+'"  data-name="'+value.VIN+'"  type="radio" name="vehicle_trin" value="'+value.VIN+'"><label class="">'+value.VIN+'</label></div>';
+                     });
+                  }else{
+                     $('.Vehicle_Model_trin').html('');
+                  }
+                  $('.Vehicle_Model_trin').html(data1);
+              }
+          });
+      });
+   }
+   // $(document).ready(function(){
+   //    $('#vehicalmakerother').change(function(){
+   //        var other=$('#vehicalmakerother').val();
+
+
+   //        $.ajax({
+
+   //            type:'POST',
+   //            url:'/getcoverage/api/VehicleInfoOther/'+other,
+   //            data:{vehicle_maker_other:other},
+   //            success: function(data){
+   //                console.log(data)
+
+   //                if(data){
+   //                $("#my_div").empty();
+
+   //                var data1='';
+   //                    $.each(data,function(key,value){
+   //                    data1 +='<div class="info-input-box"><input class="info-input model'+key+'" data-name="'+value.vehicle_model+'"  onclick="btnclickmodel('+key+')" type="button" name="vehicle_model" value="'+value.vehicle_model+'"><label class="">'+value.vehicle_model+'</label></div>';
+   //                    });
+   //                }else{
+   //                    $("#my_div").empty();
+   //                }
+   //                $('.vehicalother').html(data1)
+
+   //            }
+
+
+
+   //        })
+   //    });
+
+   // });
+   // function btnclickmodel(key)
+   // {
+   //    var makermodel=$('.model'+key).attr('data-name');
+
+   //    $(document).ready(function(){
+
+   //        $.ajax({
+
+   //            type:'POST',
+   //            url:'/getcoverage/api/VehicleInfoModel/'+makermodel,
+   //            data:{vehicle_model:makermodel},
+   //            success: function(data){
+   //                console.log(data)
+
+   //                if(data){
+   //                $("#my_div").empty();
+
+   //                var data1='';
+   //                    $.each(data,function(key,value){
+   //                    data1 +='<div class="info-input-box"><input class="info-input insurance'+key+'" data-name="'+value.vehicle_trin+'"  onclick="btnclickinsurance('+key+')" type="button" name="vehicle_trin" value="'+value.vehicle_trin+'"><label class="">'+value.vehicle_trin+'</label></div>';
+   //                    });
+   //                }else{
+   //                    $("#my_div").empty();
+   //                }
+   //                $('.vehicalmodel').html(data1)
+
+   //            }
+
+
+   //        });
+   //    });
+   // }
+
+   // function btnclickinsurance(key)
+   // {
+   //    var makerinsurance=$('.insurance'+key).attr('data-name');
+
+   //    $(document).ready(function(){
+
+   //       $.ajax({
+
+   //                type:'POST',
+   //                url:'/getcoverage/api/VehicleInfoTrin/'+makerinsurance,
+   //                data:{vehicle_trin:makerinsurance},
+   //                success: function(data){
+   //                console.log(data)
+
+   //                if(data){
+   //                $("#my_div").empty();
+
+   //                var data1='';
+   //                    $.each(data,function(key,value){
+   //                    data1 +='<div class="info-input-box"><input class="info-input autoinsurance'+key+'" data-name="'+value.current_insurance+'"  onclick="btnclickautoinsurance('+key+')" type="button" name="vehicle_model" value="'+value.current_insurance+'"><label class="">'+value.current_insurance+'</label></div>';
+   //                    });
+   //                }else{
+   //                    $("#my_div").empty();
+   //                }
+   //                $('.vehicalinsurance').html(data1)
+
+   //            }
+
+   //       });
+
+   //    });
+   // }
+
+   // function btnclickautoinsurance(key)
+   // {
+   //    var makerautoinsurance=$('.autoinsurance'+key).attr('data-name');
+
+   //    $(document).ready(function(){
+
+   //        $.ajax({
+
+   //            type:'POST',
+   //            url:'/getcoverage/api/VehicleInfoInsurance/'+makerautoinsurance,
+   //            data:{current_insurance:makerautoinsurance},
+   //            success: function(data){
+   //                console.log(data)
+
+   //                if(data){
+   //                $("#my_div").empty();
+
+   //                var data1='';
+   //                    $.each(data,function(key,value){
+   //                    data1 +='<div class="info-input-box"><input class="info-input autoinsurance'+key+'" data-name="'+value.insurance_duration+'"  onclick="btnclickautoinsurance('+key+')" type="button" name="vehicle_model" value="'+value.insurance_duration+'"><label class="">'+value.insurance_duration+'</label></div>';
+   //                    });
+   //                }else{
+   //                    $("#my_div").empty();
+   //                }
+   //                $('.vehicalinsuranceduration').html(data1)
+
+   //            }
+
+   //        });
+   //    });
+   // }
+</script>
+@endsection
