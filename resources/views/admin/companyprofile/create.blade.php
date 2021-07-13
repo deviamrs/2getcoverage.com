@@ -2,23 +2,21 @@
 
 
 @section('admin_content')
- 
+
    <div class="card p-3">
       <h5>{{ isset($company) ? 'Update '. $company->name  : 'Add'}} Company</h5>
-       
+
       <div class="row mt-3">
          <form   class="col-md-6" action="{{ isset($company) ?   route('company.update' , $company->id)    : route('company.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
              @isset($company)
                   @method('PUT')
              @endisset
-             <div class="form-group mb-2"> 
+             <div class="form-group mb-2">
                  <label for="floatingInput">Name</label>
                  <input type="text" class="form-control"  placeholder="Name"  name="name" value="{{ isset($company) ? $company->name : old('name') }}">
                  @error('name') <small class="text-sm text-danger">{{ $message }}</small>   @enderror
-               </div>
-          
-                
+             </div>
                <div class="row">
                 <div class="col-md-6">
                   <div class="from-group">
@@ -28,7 +26,7 @@
                     @if ($company->status == 1)
                         checked
                     @endif
-                    @endisset >Active 
+                    @endisset >Active
                     <span class="mr-2"></span>
                     <input type="radio" name="status" value="0" class="mr-2" class="custom-control-input @error('status') is-invalid @enderror"
                     @isset($company)
@@ -52,7 +50,7 @@
                     @if ($company->front_status == 1)
                         checked
                     @endif
-                    @endisset >Active 
+                    @endisset >Active
                     <span class="mr-2"></span>
                     <input type="radio" name="front_status" value="0" class="mr-2" class="custom-control-input @error('front_status') is-invalid @enderror"
                     @isset($company)
@@ -68,12 +66,12 @@
                     @enderror
                    </div>
                  </div>
-                
+
                </div>
 
 
-             
-                 
+
+
                @isset($company)
                    <img src="{{ asset('public/'.$company->image) }}" alt="" class="mb-2" style="width: 100px">
                @endisset
@@ -94,7 +92,7 @@
          </form>
      </div>
      {{-- <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
-     
+
      <script>
          CKEDITOR.replace( 'front_details' , {
              height : 200,

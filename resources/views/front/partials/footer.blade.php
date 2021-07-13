@@ -1,10 +1,5 @@
    <footer class="footer " id="footer">
           <div class="container footer-wrap ">
-
-           
-           
-
-
             @isset($insureCategories)
                @if ($insureCategories->count() > 0)
                     @foreach ($insureCategories as $category)
