@@ -64,42 +64,31 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
 
+                        <div class="info-info-with-small-select">
+                            <div class="info-input-inline">
+                                <label for="vehicle-maker" class="info-label">Select Your Vehicle Make</label>
+                                <div class="info-select-box">
+                                    <select name="vehicle_maker" id="vehicle-maker" class="select-box">
 
-                    {{-- info compoment 2 --}}
+                                        <option value="Cheverolet">Cheverolet</option>
+                                        <option value="Dodge">Dodge</option>
+                                        <option value="Dodge">Dodge</option>
+                                        <option value="Ford">Ford</option>
 
-                    <div class="info-component component">
+                                    </select>
+                                </div>
+                            </div>
 
-
-
-
-                        <div class="info-input-inline">
-                            <label for="vehicle-maker" class="info-label">Select Your Vehicle Make</label>
-                            <div class="info-select-box">
-                                <select name="vehicle_maker" id="vehicle-maker" class="select-box">
-
-                                    <option value="Cheverolet">Cheverolet</option>
-                                    <option value="Dodge">Dodge</option>
-                                    <option value="Dodge">Dodge</option>
-                                    <option value="Ford">Ford</option>
-
+                            <div class="input-type-select">
+                                <select name="vehicle_maker_other" id="" class="global-select-box">
+                                    <option value="other" selected>Other Make</option>
+                                    <option value="Toyoto">Toyoto</option>
                                 </select>
                             </div>
                         </div>
 
-                        <div class="input-type-select">
-                            <select name="vehicle_maker_other" id="" class="global-select-box">
-                                <option value="other" selected>Other Make</option>
-                                <option value="Toyoto">Toyoto</option>
-                            </select>
-                        </div>
 
-                    </div>
-
-
-
-                    <div class="info-component component">
                         <div class="info-input-inline">
                             <label for="" class="info-label">Select Your Vehicle Model</label>
 
@@ -112,27 +101,22 @@
 
                         </div>
 
-                    </div>
 
+                        <div class="info-component component">
+                            <div class="info-input-inline">
+                                <label for="" class="info-label">Select Your Vehicle Trim</label>
 
-                    <div class="info-component component">
-                        <div class="info-input-inline">
-                            <label for="" class="info-label">Select Your Vehicle Trim</label>
+                                <div class="info-select-box">
+                                    <select name="vehicle_maker_other" id="" class="select-box">
+                                        <option value="Base Model" selected>Base Model</option>
+                                        <option value="Touring">Touring</option>
+                                    </select>
+                                </div>
 
-                            <div class="info-select-box">
-                                <select name="vehicle_maker_other" id="" class="select-box">
-                                    <option value="Base Model" selected>Base Model</option>
-                                    <option value="Touring">Touring</option>
-                                </select>
                             </div>
-
                         </div>
-
                     </div>
-
-
                     <div class="info-component component">
-
                         <div class="info-input-inline">
                             <label for="" class="info-label">Do you own or lease this car?</label>
 
@@ -145,12 +129,7 @@
                                     class="">Lease</label>
                             </div>
                         </div>
-
                     </div>
-
-
-
-
                     <div class="info-component component">
 
                         <div class="info-input-inline">
