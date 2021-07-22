@@ -145,9 +145,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
                     <div class="info-component component">
 
                         {{-- <h2 class="info-head text-left"> Let's get started with your car information</h2> --}}
@@ -313,14 +310,8 @@
                                             value="{{ $zipCode }}">
                                     </div>
                                 </div>
-
                             </div>
-
-
-
                         </div>
-
-
                     </div>
                 </div>
 
